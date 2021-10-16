@@ -13,8 +13,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String photoURL =
-    "https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg";
 
 class HeroWidgetMain extends StatelessWidget {
   @override
@@ -51,7 +49,16 @@ class HeroWidgetDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body:
+        GestureDetector(
+          onDoubleTap: (){Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HeroWidgetMain(),
+            ),
+          );
+          },
+          child:
+        Container(
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(photoURL),
@@ -59,10 +66,9 @@ class HeroWidgetDetail extends StatelessWidget {
             )
 
           ),
-          child: Icon,
-
 
           ),
+        ),
         );
   }
 }
