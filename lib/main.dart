@@ -5,70 +5,67 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  //const ({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HeroWidgetMain(),
+      home: HeroAnimation(),
     );
   }
 }
 
+class HeroAnimation extends StatelessWidget {
+  //const MyApp({Key key}) : super(key: key);
 
-class HeroWidgetMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Hero Animation Widget"),
-      ),
-      body: GestureDetector(
-          onTap: () => Navigator.of(context).push(PageRouteBuilder(
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    HeroWidgetDetail(),
-                transitionsBuilder:
-                    (context, animation, secondaryAnimation, child) {
-                  return child;
-                },
-              )),
-          child: Center(
-            child: Hero(
-              tag: 'myImage',
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Hero Animation"),
+        ),
+        body: GestureDetector(
+            onTap: () => Navigator.of(context).push(PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      HeroAnimation2(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return child;
+                  },
+                )),
+
               child: CircleAvatar(
                 radius: 100,
-                backgroundImage: NetworkImage("https://ourtechroom.com/images/486215fact_of_nepal_flag.webp"),
-              ),
-            ),
-          )
-      ),
-    );
+                backgroundImage: NetworkImage(
+                    "https://www.okdam.com/public/upload/product/extra/nepals-flaf-with-clock0150.jpg"),
+
+            )));
   }
 }
 
-class HeroWidgetDetail extends StatelessWidget {
+class HeroAnimation2 extends StatelessWidget {
+  //const HeroAnimation2({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body:
-        GestureDetector(
-          onDoubleTap: (){Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HeroWidgetMain(),
-            ),
-          );
-          },
-          child:
-        Container(
+      body: GestureDetector(
+        onDoubleTap: () => Navigator.pop(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HeroAnimation(),
+            )),
+        child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage("https://ourtechroom.com/images/486215fact_of_nepal_flag.webp"),
+              image: NetworkImage(
+                  "https://www.okdam.com/public/upload/product/extra/nepals-flaf-with-clock0150.jpg"),
               fit: BoxFit.fill,
-            )
-
-          ),
-
+            ),
           ),
         ),
-        );
+      ),
+    );
   }
 }
