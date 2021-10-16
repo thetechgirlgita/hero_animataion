@@ -36,7 +36,7 @@ class HeroWidgetMain extends StatelessWidget {
               tag: 'myImage',
               child: CircleAvatar(
                 radius: 100,
-                backgroundImage: NetworkImage(photoURL),
+                backgroundImage: NetworkImage("https://ourtechroom.com/images/486215fact_of_nepal_flag.webp"),
               ),
             ),
           )
@@ -61,7 +61,7 @@ class HeroWidgetDetail extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(photoURL),
+              image: NetworkImage("https://ourtechroom.com/images/486215fact_of_nepal_flag.webp"),
               fit: BoxFit.fill,
             )
 
